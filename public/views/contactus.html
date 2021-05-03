@@ -1,0 +1,82 @@
+<div id="content" ng-controller="userCtrl">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="javascript:void(0);" class="current">Contact US</a> </div>
+    <h1>Contact US List</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+    <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+    <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+    <div class="row-fluid">
+    	<div class="span12">
+    		<div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Contact US</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table" datatable="ng" dt-options="vm.dtOptions" ng-init="getContactUSList()">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Email ID</th>
+                  <th>Subject</th>
+                  <th>Message</th>
+                  <th>{{contactDateTime}}</th>
+                  <th>Is Replied</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="gradeX" ng-repeat="x in records">
+                  <td>{{$index + 1}}</td>
+                  <td>{{x.contactName}}</td>
+                  <td>{{x.contactPhone}}</td>
+                  <td>{{x.contactEmail}}</td>
+                  <td>{{x.contactSubject}}</td>
+                  <td>{{x.contactMessage}}</td>
+                  <td>{{x.parsedContactDateTime}}</td>
+                  <td>
+                    <span ng-if="x.isRepliedByAdmin == 0 || x.isRepliedByAdmin == null">No</span>
+                    <span ng-if="x.isRepliedByAdmin == 1">Yes</span>
+                  </td>
+                  <td>
+                    <a data-contactEmail="{{x.contactEmail}}" data-contactName="{{x.contactName}}" data-contactId="{{x.contactId}}" ng-if="x.isRepliedByAdmin == 0" ng-click="replyView($event)" class="btn btn-primary" title="Reply To User">Reply</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+		</div>
+	</div>
+  </div>
+
+<!--  Reply Bootstrap Modal -->
+
+<div class="modal fade" id="replyModal" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" ng-bind="replyContactTitle"></h4>
+      </div>
+      <div class="modal-body">
+        <p ng-bind="replyContactEmail"></p>
+         <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+          <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+          <div style="margin-bottom:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+        <textarea class="form-control" style="width:97%;height:150px;" placeholder="Write your message here...." rows="6" name="message" ng-model="replyMessage"></textarea>
+      </div>
+      <input type="hidden" name="contactId" ng-model="contactId" value="">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" ng-click="replyToUser()">Send</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

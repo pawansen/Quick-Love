@@ -1,0 +1,17 @@
+/* Setup Call Schedule Reminder (For Both Users) */
+	                            let scheduler = require('node-schedule');
+
+	                            /* Scheduler for sender */
+	                            let senderTimeZone = (!userTimeZone) ? constant.default_timezone : userTimeZone;
+	                            let dateObjValues  = custom.getScheduledCallsDateTimeValues(senderTimeZone,callScheduleDate + " " + callScheduleTime); 
+	                            if(dateObjValues != "")
+	                            {
+	                            	let scheduleDate1  = new Date(dateObjValues.year, dateObjValues.months, dateObjValues.days, dateObjValues.hours, dateObjValues.minutes, dateObjValues.seconds); // [0 -January, 11 - December] (Y M D H I S)
+		                            let x1 = userDetailsObj[0].userFirstName + " " + userDetailsObj[0].userLastName + " call schedule reminder at " + callScheduleDate + " " + callScheduleTime;
+		                            console.log('x1',x1);
+									let j1 = scheduler.scheduleJob(scheduleDate1, function(y1){
+									  console.log('Scheduler triggered new.',y1);
+									}.bind(null,x1));
+									x1 = 'Changing Data';
+									console.log('j1',j1);
+	                            }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quicklove :: Terms & Conditions</title>
+</head>
+<script src="public/js/jquery.min.js"></script> 
+<body>
+<center>
+	<h1>Quicklove - Terms & Conditions</h1>
+	<img src="uploads/ql-logo.png" style="width:100px;">
+	<div class="content">
+		<h1>Loading.....</h1>
+	</div>
+</center>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+	      url:"https://www.quicklove.pro:9595/get-content",
+	      type:"POST",
+	      dataType:"JSON",
+	      data:{contentType:'TERMS_CONDITIONS'},
+	      success: function(data){
+	        if(data.status == 1)
+	        {
+	          $('div.content').html(data.response.contentText);
+	        }
+	      },
+	      error:function(err){
+	        console.log('error',err);
+	      }
+	    });
+	});
+</script>
+</html>

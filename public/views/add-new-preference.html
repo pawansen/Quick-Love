@@ -1,0 +1,65 @@
+<div id="content" ng-controller="userCtrl">
+<div id="content-header">
+  <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="javascript:void(0)" class="current">Preferences</a> </div>
+  <h1>Add New Preference</h1>
+</div>
+    <div class="container-fluid">
+        <hr>
+        <a href="javascript:void(0)" class="btn btn-primary pull-right" ng-click="goBack();">Back</a>
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+          <h5>Preference Form</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <form method="post" novalidate class="form-horizontal" id="preferenceForm" name="preferenceForm" ng-submit="preferenceForm.$valid && insertPreference()">
+            <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+            <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+            <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+            <div class="control-group">
+              <label class="control-label">Name</label>
+              <div class="controls">
+                <input type="text"  class="span11" placeholder="Enter Name" name="preferenceName" ng-model="preferenceName" required/>
+                <span class="error-msgs" ng-show="preferenceForm.preferenceName.$dirty && preferenceForm.preferenceName.$invalid">
+                    <span ng-show="preferenceForm.preferenceName.$error.required">Name is required.</span>
+                </span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Type</label>
+              <div class="controls">
+                <select class="form-control span11" required name="preferenceType" ng-model="preferenceType">
+                  <option value="">Select Preference Type</option>
+                  <option value="0">Describe you</option>
+                  <option value="1">Looking you</option>
+                </select>
+                <span class="error-msgs" ng-show="preferenceForm.preferenceType.$dirty && preferenceForm.preferenceType.$invalid">
+                    <span ng-show="preferenceForm.preferenceType.$error.required">Type field is required.</span>
+                </span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Module</label>
+              <div class="controls">
+                <select class="form-control span11" required name="preferenceModuleType" ng-model="preferenceModuleType">
+                  <option value="">Select Preference Module Type</option>
+                  <option value="FRIENDLY">Friendly</option>
+                  <option value="DATING">Dating</option>
+                  <option value="PROVIDER">Provider</option>
+                </select>
+                <span class="error-msgs" ng-show="preferenceForm.preferenceModuleType.$dirty && preferenceForm.preferenceModuleType.$invalid">
+                    <span ng-show="preferenceForm.preferenceModuleType.$error.required">Module field is required.</span>
+                </span>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-success" ng-disabled="preferenceForm.$invalid" disabled="disabled">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+</div>

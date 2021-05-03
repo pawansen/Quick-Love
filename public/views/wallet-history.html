@@ -1,0 +1,50 @@
+<div id="content" ng-controller="userCtrl">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/admin/users" class="current">Users</a> </div>
+    <h1>Wallet History List</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <a href="javascript:void(0)" class="btn btn-primary pull-right" ng-click="goBack();">Back</a>
+    <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+    <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+    <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+    <div class="row-fluid">
+    	<div class="span12">
+    		<div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Wallet History</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-striped table-bordered" datatable="ng" dt-options="vm.dtOptions"  ng-init="initUserWalletHistory()">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Amount</th>
+                  <th>Reason</th>
+                  <th>Transaction ID</th>
+                  <th>Transaction Status</th>
+                  <th>Date Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="gradeX" ng-repeat="x in records">
+                  <td>{{$index + 1}}</td>
+                  <td>
+                    <span ng-if="x.walletTxnType == 'ADDED'" style="color:green" title="Added To Wallet">+${{x.walletAmount}}</span>
+                    <span ng-if="x.walletTxnType == 'DEDUCT'" style="color:red" title="Deducted From Wallet">-${{x.walletAmount}}</span>
+                    <span ng-if="x.walletTxnType == 'NONE'" title="Amount On Hold">${{x.walletAmount}}</span>
+                  </td>
+                  <td>{{x.walletTxnReason | capitalize_replace}}</td>
+                  <td>{{x.walletTxnID}}</td>
+                  <td>{{x.walletTxnStatus | capitalize}}</td>
+                  <td>{{x.walletTxnDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+		</div>
+	</div>
+  </div>
+</div>

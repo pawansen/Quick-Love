@@ -1,0 +1,82 @@
+<div id="content" ng-controller="userCtrl" ng-init="initReportFlagDetails()">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/admin/users" class="current">Users</a> </div>
+    <h1>Report Flag Details</h1>
+  </div>
+
+  <div class="container-fluid">
+    <hr>
+    <a href="javascript:void(0)" class="btn btn-primary pull-right" ng-click="goBack();">Back</a>
+    <center>
+      <span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+      <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+      <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div>
+    </center>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-content nopadding">
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;Report Flag Basic Details</h4>
+            <table class="table table-striped table-bordered">
+              <tbody>
+                <tr>
+                  <td>Friend Name</td>
+                  <td>{{records.userReportFriendName}}</td>
+                </tr>
+                <tr>
+                  <td>Friend Email</td>
+                  <td>{{records.userReportFriendEmail}}</td>
+                </tr>
+                <tr>
+                  <td>Report Flag Category</td>
+                  <td>{{records.userReportCategory}}</td>
+                </tr>
+                <tr>
+                  <td>Report Flag Descprition</td>
+                  <td>{{records.userReportDescprition}}</td>
+                </tr>
+                <tr>
+                  <td>Report Flag Datetime (UTC)</td>
+                  <td>{{records.userReportDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+                <tr>
+                  <td>Is Admin Removed Flag</td>
+                  <td>
+                    <div ng-if="records.isAdminRemovedRedFlag == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isAdminRemovedRedFlag != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr ng-if="records.isAdminRemovedRedFlag == 1">
+                  <td>Report Flag Admin Reason</td>
+                  <td>{{records.adminRemoveReportFlagReason}}</td>
+                </tr>
+                <tr ng-if="records.isAdminRemovedRedFlag == 1">
+                  <td>Report Flag Remove Datetime (UTC)</td>
+                  <td>{{records.adminRemoveReportFlagDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+                <tr ng-repeat="I in records.userReportImage">
+                  <td>Report Flag Image  {{$index+1}}</td>
+                  <td>
+                      <a href="{{I.replace('uploads/', '')}}" target="_blank"><img style="width:250px;height:150px;" src="{{I.replace('uploads/', '')}}" alt="Report Flag Image {{$index+1}}"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Report Flag Video</td>
+                  <td>
+                    <a ng-if="records.userReportVideo != "" href="{{records.userReportVideo.replace('uploads/', '')}}" target="_blank">Click Here To See Video</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div><br/><br/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

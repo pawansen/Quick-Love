@@ -1,0 +1,165 @@
+<!--main-container-part-->
+<div id="content" ng-controller="userCtrl">
+<!--breadcrumbs-->
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+  </div>
+<!--End-breadcrumbs-->
+
+<!--Action boxes-->
+  <div class="container-fluid"  ng-init="getStatics()">
+    <div class="quick-actions_homepage">
+      <ul class="quick-actions">
+        <li class="bg_ly"> <a ui-sref="users" href="/admin/users"> <i class="icon-user"></i><span class="label label-success">{{records.totalUsers}}</span> Total Users </a> </li>
+         <li class="bg_lo"> <a href="javascript:void(0)"> <i class="icon-tag"></i><span class="label label-success">{{records.totalCurrentJobs}}</span> Total Current Jobs </a> </li>
+         <li class="bg_lg"> <a href="javascript:void(0)"> <i class="icon-bookmark"></i><span class="label label-success">{{records.totalPastJobs}}</span> Total Past Jobs </a> </li>
+         <li class="bg_lb"> <a href="javascript:void(0)"> <i class="icon-th-list"></i><span class="label label-success">{{records.totalProducts}}</span> Total Products </a> </li>
+         <li class="bg_lh"> <a href="javascript:void(0)"> <i class="icon-file"></i><span class="label label-success">{{records.totalOrders}}</span> Total Orders </a> </li>
+         <li class="bg_ly"> <a ui-sref="contactus" href="/admin/contact-us-requests"> <i class="icon-phone"></i><span class="label label-success">{{records.totalEnquiry}}</span> Total Enquiry </a> </li>
+         <li class="bg_lv"> <a href="javascript:void(0)"> <i class="icon-facetime-video"></i><span class="label label-success">{{records.totalCalls}}</span> Total Calls </a> </li>
+         <li class="bg_dy"> <a href="javascript:void(0)"> <i class="icon-flag"></i><span class="label label-success">{{records.totalTransactions}}</span> Total Transactions </a> </li>
+         <li class="bg_ly"> <a href="javascript:void(0)">Last Login Date Time <br/><br/>{{records.lastLogin}} </a> </li>
+         <li class="bg_lo"> <a href="javascript:void(0)"> Last IP Address <br/><br/>{{records.lastIPAddress}}</a> </li>
+      </ul>
+    </div>
+<!--End-Action boxes-->    
+
+<div class="row-fluid hidden">
+      <div class="span6">
+        <div class="widget-box">
+          <div class="widget-title bg_ly" data-toggle="collapse" href="#collapseG2"><span class="icon"><i class="icon-chevron-down"></i></span>
+            <h5>Latest Posts</h5>
+          </div>
+          <div class="widget-content nopadding collapse in" id="collapseG2">
+            <ul class="recent-posts">
+              <li>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av1.jpg"> </div>
+                <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
+                  <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
+                </div>
+              </li>
+              <li>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av2.jpg"> </div>
+                <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
+                  <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
+                </div>
+              </li>
+              <li>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av4.jpg"> </div>
+                <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
+                  <p><a href="#">This is a much longer one that will go on for a few lines.Itaffle to pad out the comment.</a> </p>
+                </div>
+              <li>
+                <button class="btn btn-warning btn-mini">View All</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-ok"></i></span>
+            <h5>To Do list</h5>
+          </div>
+          <div class="widget-content">
+            <div class="todo">
+              <ul>
+                <li class="clearfix">
+                  <div class="txt"> Luanch This theme on Themeforest <span class="by label">Alex</span></div>
+                  <div class="pull-right"> <a class="tip" href="#" title="Edit Task"><i class="icon-pencil"></i></a> <a class="tip" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt"> Manage Pending Orders <span class="date badge badge-warning">Today</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#" title="Edit Task"><i class="icon-pencil"></i></a> <a class="tip" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt"> MAke your desk clean <span class="by label">Admin</span></div>
+                  <div class="pull-right"> <a class="tip" href="#" title="Edit Task"><i class="icon-pencil"></i></a> <a class="tip" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt"> Today we celebrate the theme <span class="date badge badge-info">08.03.2013</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#" title="Edit Task"><i class="icon-pencil"></i></a> <a class="tip" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt"> Manage all the orders <span class="date badge badge-important">12.03.2013</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#" title="Edit Task"><i class="icon-pencil"></i></a> <a class="tip" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt"> Luanch This theme on Themeforest <span class="by label">Alex</span></div>
+                  <div class="pull-right"> <a class="tip" href="#" title="Edit Task"><i class="icon-pencil"></i></a> <a class="tip" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt"> Manage Pending Orders <span class="date badge badge-warning">Today</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#" title="Edit Task"><i class="icon-pencil"></i></a> <a class="tip" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        
+       
+        
+      </div>
+      <div class="span6">
+         <div class="widget-box">
+          <div class="widget-title bg_lo"  data-toggle="collapse" href="#collapseG3" > <span class="icon"> <i class="icon-chevron-down"></i> </span>
+            <h5>News updates</h5>
+          </div>
+          <div class="widget-content nopadding updates collapse in" id="collapseG3">
+            <div class="new-update clearfix"><i class="icon-ok-sign"></i>
+              <div class="update-done"><a title="" href="#"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></a> <span>dolor sit amet, consectetur adipiscing eli</span> </div>
+              <div class="update-date"><span class="update-day">20</span>jan</div>
+            </div>
+            <div class="new-update clearfix"> <i class="icon-gift"></i> <span class="update-notice"> <a title="" href="#"><strong>Congratulation Maruti, Happy Birthday </strong></a> <span>many many happy returns of the day</span> </span> <span class="update-date"><span class="update-day">11</span>jan</span> </div>
+            <div class="new-update clearfix"> <i class="icon-move"></i> <span class="update-alert"> <a title="" href="#"><strong>Maruti is a Responsive Admin theme</strong></a> <span>But already everything was solved. It will ...</span> </span> <span class="update-date"><span class="update-day">07</span>Jan</span> </div>
+            <div class="new-update clearfix"> <i class="icon-leaf"></i> <span class="update-done"> <a title="" href="#"><strong>Envato approved Maruti Admin template</strong></a> <span>i am very happy to approved by TF</span> </span> <span class="update-date"><span class="update-day">05</span>jan</span> </div>
+            <div class="new-update clearfix"> <i class="icon-question-sign"></i> <span class="update-notice"> <a title="" href="#"><strong>I am alwayse here if you have any question</strong></a> <span>we glad that you choose our template</span> </span> <span class="update-date"><span class="update-day">01</span>jan</span> </div>
+          </div>
+        </div>
+        <div class="widget-box">
+          <div class="widget-title bg_ly" data-toggle="collapse" href="#collapseG2"><span class="icon"><i class="icon-chevron-down"></i></span>
+            <h5>Latest Posts</h5>
+          </div>
+          <div class="widget-content nopadding collapse in" id="collapseG2">
+            <ul class="recent-posts">
+              <li>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av1.jpg"> </div>
+                <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
+                  <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
+                </div>
+              </li>
+              <li>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av2.jpg"> </div>
+                <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
+                  <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
+                </div>
+              </li>
+              <li>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av4.jpg"> </div>
+                <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
+                  <p><a href="#">This is a much longer one that will go on for a few lines.Itaffle to pad out the comment.</a> </p>
+                </div>
+              <li>
+                <button class="btn btn-warning btn-mini">View All</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row_row">
+      <div id="users-count-module-wise" class="pie-chart-graph col-6_col" ng-init="userCountChart()" >
+      </div>
+      <div id="jobs-count" class="pie-chart-graph col-6_col" ng-init="jobsCount()">
+      </div>
+    </div>
+    <br/>
+    <hr>
+    <div class="controls custom_linka" style="width:100%;">
+        <label class="control-label">Filter In Specific Date Range (15 Days Slot)</label>
+        <input type="daterange" limit="15 days" class="form-control span6" placeholder="Filter In Specific Date Range (15 Days Slot)" name="myDateRangeNew" ng-model="myDateRangeNew" value="{{myDateRange2}}" />
+        <a href="javascript:void(0);" class="btn btn-primary" ng-click="filterChartData()">Search</a>
+    </div><br/>
+    <div id="orders-count" class="" ng-init="ordersCount('DEFAULT')">
+    </div><br/>
+    <div id="total-revenue" class="" ng-init="totalEarning('DEFAULT')">
+    </div>

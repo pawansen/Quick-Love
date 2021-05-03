@@ -1,0 +1,99 @@
+<div id="content" ng-controller="userCtrl" ng-init="initTxnDisputeDetails()">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/admin/users" class="current">Users</a> </div>
+    <h1>Transaction Dispute Details</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <center>
+      <span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+      <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+      <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div>
+    </center>
+    <h3>Dispute Status: 
+      <a href="" ng-if="records.disputeStatus == 'PENDING'" class="btn btn-warning" title="Dispute Request Is Pending">PENDING</a>
+      <a href="" ng-if="records.disputeStatus == 'ADMIN_REJECTED'" class="btn btn-danger" title="Admin (You) Rejected Dispute Request">REJECTED</a>
+      <a href="" ng-if="records.disputeStatus == 'ADMIN_COMPLETED'" class="btn btn-success" title="Admin (You) Refunded Amount">REFUNDED</a>
+    </h3>
+    <a href="" ng-if="records.disputeStatus == 'PENDING'" ng-click="respondTxnDisputeView($event)" data-respondType="REJECT" data-transactionID="{{records.transactionID}}" class="btn btn-danger pull-right" title="Click Here To Reject Dispute Request">REJECT DISPUTE REQUEST</a>
+    <a href="" ng-if="records.disputeStatus == 'PENDING'" ng-click="respondTxnDisputeView($event)" data-respondType="REFUND" data-transactionID="{{records.transactionID}}" style="margin-right:10px;" class="btn btn-primary pull-right" title="Click Here To Refund Amount">REFUND</a>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-content nopadding">
+            <table class="table table-striped table-bordered">
+              <tbody>
+                <tr>
+                  <td>Transaction ID</td>
+                  <td>{{records.transactionCustomID}}</td>
+                </tr>
+                <tr>
+                  <td>Transaction Amount</td>
+                  <td>${{records.transactionAmount}}</td>
+                </tr>
+                <tr>
+                  <td>Transaction Datetime</td>
+                  <td>{{records.transactionDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+                <tr>
+                  <td>Transaction Type</td>
+                  <td>{{records.transactionModuleName | capitalize_replace}}</td>
+                </tr>
+                <tr>
+                  <td>Transaction Status</td>
+                  <td>{{records.transactionStatus | capitalize_replace}}</td>
+                </tr>
+                <tr>
+                  <td>Transaction Message</td>
+                  <td>{{records.transactionMessage}}</td>
+                </tr>
+                <tr>
+                  <td>User Dispute Reason</td>
+                  <td>{{records.disputeReason}}</td>
+                </tr>
+                <tr>
+                  <td>Dispute Status</td>
+                  <td>{{records.disputeStatus | capitalize_replace}}</td>
+                </tr>
+                <tr>
+                  <td>Dispute Datetime</td>
+                  <td>{{records.disputeDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+                <tr>
+                  <td>Dispute Response Datetime (You)</td>
+                  <td>{{records.disputeResponseDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+<!--  Transaction dispute modal -->
+<div class="modal fade" id="txnDisputeModal" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Your Message</h4>
+      </div>
+      <div class="modal-body">
+        <p ng-bind="replyContactEmail"></p>
+         <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+          <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+          <div style="margin-bottom:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+        <textarea class="form-control" style="width:97%;" placeholder="Write your message here...." rows="6" name="adminReason" ng-model="adminReason"></textarea>
+      </div>
+      <input type="hidden" name="transactionID" ng-model="transactionID" value="">
+      <input type="hidden" name="respondType" ng-model="respondType" value="">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" ng-click="respondTxnDispute()">Submit</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

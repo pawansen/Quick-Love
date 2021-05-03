@@ -1,0 +1,44 @@
+<div id="content" ng-controller="userCtrl">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="javascript:void(0);" class="current">Report Flag Categories</a> </div>
+    <h1>Categories List  <a ui-sref="addNewReportFlagCategory" href="/admin/add-new-report-flag-category" class="btn btn-primary pull-right" title="Add New Preference">Add New</a></h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+   
+    <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+    <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+    <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+    <div class="row-fluid">
+    	<div class="span12">
+    		<div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Report Flag Categories</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-striped table-bordered" datatable="ng" dt-options="vm.dtOptions"  ng-init="getReportFlagCategoriesList()">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Name</th>
+                  <th>Created Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="gradeX" ng-repeat="x in records">
+                  <td>{{$index + 1}}</td>
+                  <td>{{x.reportFlagCategoryName}}</td>
+                  <td>{{x.reportFlagCategoryAddedDate}}</td>
+                  <td>
+                    <a ng-click="deleteReportFlagCategory(x.reportFlagCategoryID)" class="btn btn-danger" title="Delete Report Flag Category">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+		</div>
+	</div>
+  </div>
+</div>

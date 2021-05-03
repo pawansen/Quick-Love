@@ -1,0 +1,273 @@
+<div id="content" ng-controller="userCtrl" ng-init="initUserDetails()">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/admin/users" class="current">Users</a> </div>
+    <h1>User Details</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <a href="javascript:void(0)" class="btn btn-primary pull-right" ng-click="goBack();">Back</a>
+    <center>
+      <span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+      <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+      <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div>
+    </center>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-content nopadding">
+            <table class="table table-striped table-bordered">
+              <tbody>
+                <tr>
+                  <td>User Image</td>
+                  <td>
+                    <div ng-if="!records.userImageThumbnail" height="2" width="2">
+                      <img style="width:100px;height:100px;" ng-src="img/user.png">
+                    </div>
+                    <div ng-if="records.userImageThumbnail">
+                      <img style="width:100px;height:100px;" ng-src="{{records.userImageThumbnail}}">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cover Image</td>
+                  <td>
+                    <div ng-if="!records.userCoverImageThumbnail" height="2" width="2">
+                      <img style="width:100px;height:100px;" ng-src="img/user.png">
+                    </div>
+                    <div ng-if="records.userCoverImageThumbnail">
+                      <img style="width:100px;height:100px;" ng-src="{{records.userCoverImageThumbnail}}">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>First Name</td>
+                  <td>{{records.userFirstName}}</td>
+                </tr>
+                <tr>
+                  <td>Last Name</td>
+                  <td>{{records.userLastName}}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{{records.userEmail}}</td>
+                </tr>
+                <tr>
+                  <td>Country</td>
+                  <td>{{records.userCountry}}</td>
+                </tr>
+                <tr>
+                  <td>Gender</td>
+                  <td>{{records.userGender}}</td>
+                </tr>
+                <tr>
+                  <td>Address</td>
+                  <td>{{records.userAddress}}</td>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <td>{{records.userCity}}</td>
+                </tr>
+                <tr>
+                  <td>Date Of Birth</td>
+                  <td>{{records.userDOB| date:'dd-MMMM-yyyy'}}</td>
+                </tr>
+                <tr>
+                  <td>Sexual Orientation</td>
+                  <td>{{records.userSexualOrientation}}</td>
+                </tr>
+                <tr>
+                  <td>Mood</td>
+                  <td>{{records.userMood}}</td>
+                </tr>
+                <tr>
+                  <td>Social Signup</td>
+                  <td>
+                    <div ng-if="records.isSocialSignup == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isSocialSignup != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Social Type</td>
+                  <td>{{records.userSocialType}}</td>
+                </tr>
+                <tr>
+                  <td>Is Facebook Account Verified</td>
+                  <td>
+                    <div ng-if="records.isFacebookVerified == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isFacebookVerified != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Is Instagram Account Verified</td>
+                  <td>
+                    <div ng-if="records.isInstagramVerified == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isInstagramVerified != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Is Twitter Account Verified</td>
+                  <td>
+                    <div ng-if="records.isTwitterVerified == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isTwitterVerified != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Total Red Flags</td>
+                  <td>{{records.noOfRedFlags}}</td>
+                </tr>
+                <tr>
+                  <td>Wallet Amount</td>
+                  <td>${{records.userWalletAmount}}</td>
+                </tr>
+                <tr>
+                  <td>Wallet Hold Amount</td>
+                  <td>${{records.userWalletHoldAmount}}</td>
+                </tr>
+                <tr>
+                  <td>Is Group Chat Enable</td>
+                  <td>
+                    <div ng-if="records.isGroupChatEnable == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isGroupChatEnable != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is Open For All Calls</td>
+                  <td>
+                    <div ng-if="records.isOpenForAllCalls == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isOpenForAllCalls != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is Open For Scheduled Calls</td>
+                  <td>
+                    <div ng-if="records.isOpenForScheduledCalls == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isOpenForScheduledCalls != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is Hide Profile As Provider</td>
+                  <td>
+                    <div ng-if="records.isHideProfileAsProvider == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isHideProfileAsProvider != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is Friend Preferences Added</td>
+                  <td>
+                    <div ng-if="records.isPreferencesAdded == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isPreferencesAdded != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is Dating Preferences Added</td>
+                  <td>
+                    <div ng-if="records.isDatingPreferenceAdded == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isDatingPreferenceAdded != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                 <tr>
+                  <td>Membership Status</td>
+                  <td>
+                    <div ng-if="records.membershipStatus == 0">
+                      Inactive
+                    </div>
+                    <div ng-if="records.membershipStatus != 0">
+                      Active
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is Provider Preferences Added</td>
+                  <td>
+                    <div ng-if="records.isProviderPreferenceAdded == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isProviderPreferenceAdded != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is Email Verified</td>
+                  <td>
+                    <div ng-if="records.userEmailVerified == 0">
+                      No
+                    </div>
+                    <div ng-if="records.userEmailVerified != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is User Blocked</td>
+                  <td>
+                    <div ng-if="records.isUserBlocked == 0">
+                      No
+                    </div>
+                    <div ng-if="records.isUserBlocked != 0">
+                      Yes
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Registration Date</td>
+                  <td>{{records.userRegistrationDate| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+                <tr>
+                  <td>Last Login</td>
+                  <td>{{records.userLastLogin| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+                <tr>
+                  <td>User Last IP Address</td>
+                  <td>{{records.userLastIpAddress}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

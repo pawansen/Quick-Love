@@ -1,0 +1,175 @@
+<div id="content" ng-controller="userCtrl" ng-init="initJobDetails()">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/admin/users" class="current">Users</a> </div>
+    <h1>Job Details</h1>
+  </div>
+
+  <div class="container-fluid">
+    <hr>
+    <a href="javascript:void(0)" class="btn btn-primary pull-right" ng-click="goBack();">Back</a>
+    <center>
+      <span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+      <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+      <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div>
+    </center>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-content nopadding">
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;Job Basic Details</h4>
+            <table class="table table-striped table-bordered">
+              <tbody>
+                <tr>
+                  <td>Job ID</td>
+                  <td>{{records.jobDetails.jobCustomID}}</td>
+                </tr>
+                <tr>
+                  <td>Job Title</td>
+                  <td>{{records.jobDetails.jobTitle}}</td>
+                </tr>
+                <tr>
+                  <td>Job Descprition</td>
+                  <td>{{records.jobDetails.jobDescprition}}</td>
+                </tr>
+                <tr>
+                  <td>Job Mode</td>
+                  <td>{{records.jobDetails.jobMode | capitalize}}</td>
+                </tr>
+                <tr>
+                  <td>Job Address</td>
+                  <td>{{records.jobDetails.jobAddress}}</td>
+                </tr>
+                <tr>
+                  <td>Job Start Date</td>
+                  <td>{{records.jobDetails.jobStartDate}}</td>
+                </tr>
+                <tr>
+                  <td>Job End Date</td>
+                  <td>{{records.jobDetails.jobEndDate}}</td>
+                </tr>
+                <tr>
+                  <td>Job Payment Method</td>
+                  <td>{{records.jobDetails.jobPaymentMethod | capitalize_replace}}</td>
+                </tr>
+                <tr>
+                  <td>Job Agreed Amount</td>
+                  <td>${{records.jobDetails.jobAgreedAmount}}</td>
+                </tr>
+                <tr>
+                  <td>Job Advance Amount</td>
+                  <td>${{records.jobDetails.jobAdvanceAmount}}</td>
+                </tr>
+                <tr>
+                  <td>Job Milestone Amount</td>
+                  <td>${{records.jobDetails.jobMilestoneAmountTotal}}</td>
+                </tr>
+                <tr>
+                  <td>Job Hire Datetime (UTC)</td>
+                  <td>{{records.jobDetails.jobHireDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                </tr>
+                <tr>
+                  <td>Job Status</td>
+                  <td ng-if="records.jobDetails.jobGlobalStatus == 'MUTUALLY_CANCELED'">Mutually Cancelled</td>
+                  <td ng-if="records.jobDetails.jobGlobalStatus != 'MUTUALLY_CANCELED'">{{records.jobDetails.jobGlobalStatus | capitalize}}</td>
+                </tr>
+                <tr ng-if="records.jobDetails.jobCancelReason != ''">
+                  <td>Job Status</td>
+                  <td>{{records.jobDetails.jobCancelReason}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div><br/><br/>
+          <div class="widget-content nopadding">
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;Hirer Details</h4>
+            <table class="table table-striped table-bordered">
+              <tbody>
+                <tr>
+                  <td>Hirer Name</td>
+                  <td>{{records.jobHirerDetails.userFirstName}} {{records.jobHirerDetails.userLastName}}</td>
+                </tr>
+                <tr>
+                  <td>Hirer Email</td>
+                  <td>{{records.jobHirerDetails.userEmail}}</td>
+                </tr>
+                <tr>
+                  <td>Hirer Address</td>
+                  <td>{{records.jobHirerDetails.userAddress}}</td>
+                </tr>
+                <tr>
+                  <td>Hirer Country</td>
+                  <td>{{records.jobHirerDetails.userCountry}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div><br/><br/>
+          <div class="widget-content nopadding">
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;Provider Details</h4>
+            <table class="table table-striped table-bordered">
+              <tbody>
+                <tr>
+                  <td>Provider Name</td>
+                  <td>{{records.jobProviderDetails.userFirstName}} {{records.jobProviderDetails.userLastName}}</td>
+                </tr>
+                <tr>
+                  <td>Provider Email</td>
+                  <td>{{records.jobProviderDetails.userEmail}}</td>
+                </tr>
+                <tr>
+                  <td>Provider Address</td>
+                  <td>{{records.jobProviderDetails.userAddress}}</td>
+                </tr>
+                <tr>
+                  <td>Provider Country</td>
+                  <td>{{records.jobProviderDetails.userCountry}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div><br/><br/>
+          <div class="widget-content nopadding">
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;Job Payment Distribution Details</h4>
+            <table class="table table-striped table-bordered">
+              <tbody>
+                <tr>
+                  <td>Hirer Quicklove Fees (%)</td>
+                  <td>{{records.jobPaymentDistributionDetails.jobHirerQlFeesPercent}}%</td>
+                </tr>
+                <tr>
+                  <td>Hirer Quicklove Fees ($)</td>
+                  <td>${{records.jobPaymentDistributionDetails.jobHirerQlFeesAmount}}</td>
+                </tr>
+                <tr>
+                  <td>Provider Quicklove Fees (%)</td>
+                  <td>{{records.jobPaymentDistributionDetails.jobProviderQlFeesPercent}}%</td>
+                </tr>
+                <tr>
+                  <td>Provider Quicklove Fees ($)</td>
+                  <td>${{records.jobPaymentDistributionDetails.jobProviderQlFeesAmount}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div><br/><br/>
+          <div class="widget-content nopadding" ng-if="records.jobMilestonesDetails != ''">
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;Job Milestone Details</h4>
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <td><strong>Milestone Title</strong></td>
+                  <td><strong>Milestone Amount ($)</strong></td>
+                  <td><strong>Milestone Status</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="M in records.jobMilestonesDetails">
+                  <td>{{M.milestoneTitle}}</td>
+                  <td>${{M.milestoneAmount}}</td>
+                  <td>{{M.milestoneStatus | capitalize}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

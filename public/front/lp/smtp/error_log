@@ -1,0 +1,9 @@
+[28-Nov-2017 03:13:14 America/Chicago] PHP Warning:  include(smtp/library.php): failed to open stream: No such file or directory in /home2/ajayash/public_html/seo-services-consultants.com/smtp/sendmail.php on line 2
+[28-Nov-2017 03:13:14 America/Chicago] PHP Warning:  include(smtp/library.php): failed to open stream: No such file or directory in /home2/ajayash/public_html/seo-services-consultants.com/smtp/sendmail.php on line 2
+[28-Nov-2017 03:13:14 America/Chicago] PHP Warning:  include(): Failed opening 'smtp/library.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home2/ajayash/public_html/seo-services-consultants.com/smtp/sendmail.php on line 2
+[28-Nov-2017 03:13:14 America/Chicago] PHP Warning:  include(smtp/classes/class.phpmailer.php): failed to open stream: No such file or directory in /home2/ajayash/public_html/seo-services-consultants.com/smtp/sendmail.php on line 3
+[28-Nov-2017 03:13:14 America/Chicago] PHP Warning:  include(smtp/classes/class.phpmailer.php): failed to open stream: No such file or directory in /home2/ajayash/public_html/seo-services-consultants.com/smtp/sendmail.php on line 3
+[28-Nov-2017 03:13:14 America/Chicago] PHP Warning:  include(): Failed opening 'smtp/classes/class.phpmailer.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home2/ajayash/public_html/seo-services-consultants.com/smtp/sendmail.php on line 3
+[28-Nov-2017 03:13:14 America/Chicago] PHP Fatal error:  Class 'PHPMailer' not found in /home2/ajayash/public_html/seo-services-consultants.com/smtp/sendmail.php on line 6
+[28-Nov-2017 05:13:10 America/Chicago] PHP Parse error:  syntax error, unexpected '$mail' (T_VARIABLE) in /home2/ajayash/public_html/seo-services-consultants.com/smtp/sendmail.php on line 19
+[25-Jul-2018 02:20:35 America/Chicago] PHP Parse error:  syntax error, unexpected 'Raleway' (T_STRING), expecting ',' or ';' in /home2/ajayash/public_html/wordpress-demos/quicklove/smtp/sendmail.php on line 100

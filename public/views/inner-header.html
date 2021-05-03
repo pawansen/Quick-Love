@@ -1,0 +1,19 @@
+<!--Header-part-->
+<div id="header">
+  <h1><a href="dashboard.html">Quicklove Admin</a></h1>
+</div>
+<!--close-Header-part--> 
+
+<!--top-Header-menu-->
+<div id="user-nav" class="navbar navbar-inverse"  ng-controller="userCtrl">
+  <ul class="nav">
+    <li  class="dropdown" id="profile-messages" ><a title="" href="javascript:void(0);" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome Admin</span><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a ui-sref="changePassword" href="/admin/change-password"><i class="icon-key"></i> Change Password</a></li>
+        <li><a href="javascript:void(0);" ng-click="logout()" ><i class="icon-share-alt"></i> Logout</a></li>
+      </ul>
+    </li>
+    <li class="logout-li"><a title="Logout" ng-click="logout()" href="javascript:void(0);" ><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+  </ul>
+</div>
+<!--close-top-Header-menu-->

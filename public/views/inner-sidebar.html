@@ -1,0 +1,14 @@
+<!--sidebar-menu-->
+<div id="sidebar"  ng-controller="userCtrl"><a href="/" class="visible-phone"><i class="icon icon-dashboard"></i> Dashboard</a>
+  <ul>
+    <li ng-class="activeClass('/admin/dashboard')"><a href="/"><i class="icon icon-dashboard"></i> <span>Dashboard</span></a> </li>
+    <li ng-class="activeClass('/admin/users')"> <a ui-sref="users" href="/admin/users"><i class="icon icon-user"></i> <span>Users Management</span></a> </li>
+    <li ng-class="activeClass('/admin/preferences')"> <a ui-sref="preferences" href="/admin/preferences"><i class="icon icon-cog"></i> <span>Preferences Management</span></a> </li>
+    <li ng-class="activeClass('/admin/content')"> <a ui-sref="content" href="/admin/content"><i class="icon icon-text-width"></i> <span>Content Management</span></a> </li>
+    <li ng-class="activeClass('/admin/contact-us-requests')"> <a ui-sref="contactus" href="/admin/contact-us-requests"><i class="icon icon-phone"></i> <span>Contact US Requests</span></a> </li>
+    <li ng-class="activeClass('/admin/report-flag-categories')"> <a ui-sref="reportFlagCategories" href="/admin/report-flag-categories"><i class="icon icon-tags"></i> <span>Report Flag Categories</span></a> </li>
+    <li ng-class="activeClass('/admin/send-notifications')"> <a ui-sref="sendNotifications" href="/admin/send-notifications"><i class="icon icon-tags"></i> <span>Send Notifications</span></a> </li>
+    <li ng-class="activeClass('/admin/reports')"> <a ui-sref="reports" href="/admin/reports"><i class="icon icon-tags"></i> <span>Reports</span></a> </li>
+  </ul>
+</div>
+<!--sidebar-menu-->

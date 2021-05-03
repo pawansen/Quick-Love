@@ -1,0 +1,108 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en" data-ng-app="quick-love">
+    
+<head>
+        <title>Quicklove Admin</title><meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="/">
+  
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/datatables.bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="css/jquery.gritter.css" />
+        <link rel="stylesheet" href="css/matrix-login.css" />
+        <link rel="stylesheet" href="css/uniform.css" />
+        <link rel="stylesheet" href="css/fullcalendar.css" />
+        <link rel="stylesheet" href="css/matrix-style.css" />
+        <link rel="stylesheet" href="css/matrix-media.css" />
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
+        <link rel="stylesheet" type="text/css" href="css/select2.css">
+        <link rel="stylesheet" type="text/css" href="css/daterangepicker-bs3.css">
+
+        <!-- JS -->
+        <script src="js/jquery.min.js"></script>  
+
+        <!-- datatable-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="js/angular-datatables.min.js"></script>
+        <script src="js/jquery.dataTables.min.js"></script>
+
+        <!-- <script src="js/bootstrap-new.js"></script> -->
+        <script src="js/moment.js"></script>
+        <script src="js/daterangepicker.js"></script>
+
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+
+        <script src="js/ng-bs-daterangepicker.js"></script>
+
+        <!-- Select2 JS-->
+        <script src="js/select2.min.js"></script>
+        <script src="js/select2.js"></script>
+
+        <script src="js/highcharts.js"></script>
+        <script src="js/highchart-exporting.js"></script>
+
+        <!-- HTML Editor -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
+        
+        <!-- ANGULAR CUSTOM -->
+        <script src="app.js" data-version="update"></script>
+        <script src="config.js" data-version="update"></script>
+        <script src="js/controllers/mainctrl.js" data-version="update"></script>
+        <script src="js/controllers/loginCtrl.js" data-version="update"></script>
+        <script src="js/controllers/userCtrl.js" data-version="update"></script>
+        <script src="js/directive/directive.js" data-version="update"></script>
+        <script src="js/services/services.js" data-version="update"></script>
+
+    </head>
+    <body data-ng-controller="mainCtrl">
+
+        <main>
+            <inner-header class="header_sec" ng-if="isloggedIn"></inner-header>
+            <inner-sidebar class="siderbar_sec" ng-if="isloggedIn"></inner-sidebar>
+                <ui-view></ui-view>
+            <inner-footer class="footer_sec" ng-if="isloggedIn"></inner-footer>
+        </main>
+        
+        <script>
+            /*code for versioning of css and js files*/
+            var jsVersion = parseInt(Math.random() * 1000000000);
+            var script = document.querySelectorAll('[data-version]');
+            var link = document.querySelectorAll('[data-version]');
+            for (var int = 0; int < link.length; int++) {
+                link[int].href = link[int].href + "?ver=" + jsVersion;
+            }
+            for (var int = 0; int < script.length; int++) {
+                script[int].src = script[int].src + "?ver=" + jsVersion;
+            }
+            /*code for versioning of css and js files*/
+        </script>
+        <script src="js/matrix.login.js"></script> 
+        <script src="js/excanvas.min.js"></script> 
+        <script src="js/jquery.ui.custom.js"></script> 
+        <script src="js/bootstrap.min.js"></script> 
+        <script src="js/jquery.flot.min.js"></script> 
+        <script src="js/jquery.flot.resize.min.js"></script> 
+        <script src="js/jquery.peity.min.js"></script> 
+        <script src="js/fullcalendar.min.js"></script> 
+        <script src="js/matrix.js"></script> 
+        <script src="js/matrix.dashboard.js"></script> 
+        <script src="js/jquery.gritter.min.js"></script> 
+        <script src="js/matrix.interface.js"></script> 
+        <script src="js/matrix.chat.js"></script> 
+        <script src="js/jquery.validate.js"></script> 
+        <script src="js/matrix.form_validation.js"></script> 
+        <script src="js/jquery.wizard.js"></script> 
+        <script src="js/jquery.uniform.js"></script> 
+        <script src="js/select2.min.js"></script> 
+        <script src="js/matrix.popover.js"></script> 
+        <script src="js/matrix.tables.js"></script> 
+        <script src="js/json-export-excel.min.js"></script>
+        <script src="js/FileSaver.min.js"></script>
+    </body>
+</html>

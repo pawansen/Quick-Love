@@ -1,0 +1,31 @@
+<div id="loginbox" ng-controller="loginCtrl">            
+<form id="loginform" novalidate class="form-vertical" name="loginForm" ng-submit="login()">
+	 <div class="control-group normal_text"> <h3><img src="img/logo.png" alt="Logo" /></h3></div>
+     <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+     <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+     <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+    <div class="control-group">
+        <div class="controls">
+            <div class="main_input_box">
+                <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="email" placeholder="Email Id" required ng-model="userEmail" name="userEmail" />
+                <span class="error-msgs" ng-show="loginForm.userEmail.$dirty && loginForm.userEmail.$invalid">
+                    <span ng-show="loginForm.userEmail.$error.email">Please enter valid email address.</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <div class="main_input_box">
+                <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Password" name="userPassword" ng-model="userPassword" required />
+                <span class="error-msgs" ng-show="loginForm.userPassword.$dirty && loginForm.userPassword.$invalid">
+                    <span ng-show="loginForm.userPassword.$error.required">Password is required.</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-actions">
+       <center><button class="btn btn-success" ng-disabled="loginForm.$invalid" disabled="disabled">Login</button></center>
+    </div>
+</form>
+</div>

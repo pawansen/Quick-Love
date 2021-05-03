@@ -1,0 +1,89 @@
+<div id="content" ng-controller="userCtrl">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/admin/users" class="current">Users</a> </div>
+    <h1>Report Flags List</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <a href="javascript:void(0)" class="btn btn-primary pull-right" ng-click="goBack();">Back</a>
+    <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+    <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+    <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Report Flags</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-striped table-bordered" datatable="ng" dt-options="vm.dtOptions"  ng-init="initReportFlagsList()">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Friend Name</th>
+                  <th>Friend Email-ID</th>
+                  <th>Category</th>
+                  <th>Descprition</th>
+                  <th>Date Time (UTC)</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="gradeX" ng-repeat="x in records">
+                  <td>{{$index + 1}}</td>
+                  <td>{{x.userReportFriendName}}</td>
+                  <td>{{x.userReportFriendEmail}}</td>
+                  <td>{{x.userReportCategory}}</td>
+                  <td>{{x.userReportDescprition}}</td>
+                  <td>{{x.userReportDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action
+                      <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                          <li><a href="javascript:void(0)" title="View Report Flag Details" ng-click="viewReportFlagDetails(x.userReportId)">View Details
+                          </a></li> 
+                          <li><a href="javascript:void(0)" ng-if="x.isAdminRemovedRedFlag == 0" title="Click Here To Remove User Flag" ng-click="removeFlag($event)" data-userReportId="{{x.userReportId}}" data-userReportFriendName="{{x.userReportFriendName}}" data-userReportFriendEmail="{{x.userReportFriendEmail}}">Remove Red Flag
+                          </a></li> 
+                          <li><a title="Red Flag Removed At {{x.adminRemoveReportFlagDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}} (UTC)" ng-click="removedFlagAlert($event)" href="javascript:void(0)" data-flag-title="Red Flag Removed At {{x.adminRemoveReportFlagDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}} (UTC)" ng-if="x.isAdminRemovedRedFlag == 1" title="Click Here To Remove Red Flag">Red Flag Removed
+                          </a></li> 
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <!--  Reply Bootstrap Modal -->
+
+<div class="modal fade" id="removeFlagModal" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Remove User Flag</h4>
+      </div>
+      <div class="modal-body">
+        <p ng-bind-html="replyUserReportFriendName"></p>
+        <p ng-bind-html="replyUserReportFriendEmail"></p>
+         <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+          <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+          <div style="margin-bottom:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+        <textarea class="form-control" style="width:97%;height:150px;" placeholder="Write your reason here...." rows="6" name="message" ng-model="replyAdminRemoveReportFlagReason"></textarea>
+      </div>
+      <input type="hidden" name="userReportId" ng-model="userReportId" value="">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" ng-click="doRemoveFlag()">Remove</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+

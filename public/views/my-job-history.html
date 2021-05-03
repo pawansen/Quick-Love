@@ -1,0 +1,110 @@
+<div id="content" ng-controller="userCtrl">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/admin/users" class="current">Users</a> </div>
+    <h1>My Job History List</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <a href="javascript:void(0)" class="btn btn-primary pull-right" ng-click="goBack();">Back</a>
+    <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+    <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+    <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+    <div class="row-fluid">
+    	<div class="span12">
+    		<div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>My Job History</h5>
+          </div>
+          <div class="widget-content nopadding">
+          <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#current-jobs">Current Jobs</a></li>
+            <li><a data-toggle="pill" href="#past-jobs">Past Jobs</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="current-jobs" class="tab-pane fade in active">
+              <h3>Current Jobs</h3>
+              <table class="table table-striped table-bordered" datatable="ng" dt-options="vm.dtOptions" ng-init="initMyJobHistory('CURRENT_JOBS')">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Job ID</th>
+                  <th>Provider Name</th>
+                  <th>Title</th>
+                  <th>Mode</th>
+                  <th>Payment Method</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Agreed Amount</th>
+                  <th>Hire Datetime</th>
+                  <th>Status</th>
+                  <th>View Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="gradeX" ng-repeat="mo in currentjobs">
+                  <td>{{$index + 1}}</td>
+                  <td>{{mo.jobCustomID}}</td>
+                  <td>{{mo.userName}}</td>
+                  <td>{{mo.jobTitle}}</td>
+                  <td>{{mo.jobMode | capitalize}}</td>
+                  <td>{{mo.jobPaymentMethod | capitalize_replace}}</td>
+                  <td>{{mo.jobStartDate| date:'dd-MMMM-yyyy'}}</td>
+                  <td>{{mo.jobEndDate| date:'dd-MMMM-yyyy'}}</td>
+                  <td>${{mo.jobAgreedAmount}}</td>
+                  <td>{{mo.jobHireDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                  <td ng-if="mo.jobGlobalStatus == 'MUTUALLY_CANCELED'">Mutually Cancelled</td>
+                  <td ng-if="mo.jobGlobalStatus != 'MUTUALLY_CANCELED'">{{mo.jobGlobalStatus | capitalize_replace}}</td>
+                  <td>
+                  <a ng-click="viewJobDetails(mo.jobID)" class="btn btn-primary" title="View Job Details">View Details</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            <div id="past-jobs" class="tab-pane fade">
+              <h3>Past Jobs</h3>
+              <table class="table table-striped table-bordered" datatable="ng" dt-options="vm.dtOptions" ng-init="initMyJobHistory('PAST_JOBS')">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Job ID</th>
+                  <th>Provider Name</th>
+                  <th>Title</th>
+                  <th>Mode</th>
+                  <th>Payment Method</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Agreed Amount</th>
+                  <th>Hire Datetime</th>
+                  <th>Status</th>
+                  <th>View Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="gradeX" ng-repeat="ro in pastjobs">
+                  <td>{{$index + 1}}</td>
+                  <td>{{ro.jobCustomID}}</td>
+                  <td>{{ro.userName}}</td>
+                  <td>{{ro.jobTitle}}</td>
+                  <td>{{ro.jobMode | capitalize}}</td>
+                  <td>{{ro.jobPaymentMethod | capitalize}}</td>
+                  <td>{{ro.jobStartDate| date:'dd-MMMM-yyyy'}}</td>
+                  <td>{{ro.jobEndDate| date:'dd-MMMM-yyyy'}}</td>
+                  <td>${{ro.jobAgreedAmount}}</td>
+                  <td>{{ro.jobHireDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                  <td ng-if="ro.jobGlobalStatus == 'MUTUALLY_CANCELED'">Mutually Cancelled</td>
+                  <td ng-if="ro.jobGlobalStatus != 'MUTUALLY_CANCELED'">{{ro.jobGlobalStatus | capitalize_replace}}</td>
+                  <td>
+                    <a ng-click="viewJobDetails(ro.jobID)" class="btn btn-primary" title="View Job Details">View Details</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+          </div>
+        </div>
+		</div>
+	</div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div id="content" ng-controller="userCtrl">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/admin/users" class="current">Users</a> </div>
+    <h1>Transactions History List</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <a href="javascript:void(0)" class="btn btn-primary pull-right" ng-click="goBack();">Back</a>
+    <center><span style="color:red" ng-if="errorMessage">{{ errorMessage }}</span>
+    <span style="color:green" ng-if="successMessage">{{ successMessage }}</span>
+    <div style="margin-top:10px;" class="loadersmall" ng-if="isLoading"></div></center>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Transactions History</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-striped table-bordered" datatable="ng" dt-options="vm.dtOptions"  ng-init="initUserTxnHistory()">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Amount</th>
+                  <th>Message</th>
+                  <th>Reason</th>
+                  <th>Transaction ID</th>
+                  <th>Transaction Status</th>
+                  <th>Date Time</th>
+                  <th>Dispute</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="gradeX" ng-repeat="x in records">
+                  <td>{{$index + 1}}</td>
+                  <td>${{x.transactionAmount}}</td>
+                  <td>{{x.transactionMessage}}</td>
+                  <td>{{x.transactionModuleName | capitalize_replace}}</td>
+                  <td>{{x.transactionCustomID}}</td>
+                  <td>{{x.transactionStatus | capitalize}}</td>
+                  <td>{{x.transactionDateTime| date:'dd-MMMM-yyyy, hh:mm:ss a'}}</td>
+                  <td>
+                    <a ng-if="x.transactionDisputed == 1" ng-click="viewTxnDispute(x.transactionID)" href="javascript:void(0);" class="btn btn-primary" title="Click Here To View Dispute Details">View Dispute</a>
+                    <span ng-if="x.transactionDisputed == 0">NA</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,2735 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Quick Love",
+		"_postman_id": "c44d9f67-da18-62ef-1a95-5cb90879dcd3",
+		"description": "Quick Love",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup  & Login, Social Login",
+			"description": "Signup  & Login, Social Login",
+			"item": [
+				{
+					"name": "For User Registration",
+					"request": {
+						"url": "{{base_url}}user/signup",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "userLoginSessionKey",
+								"value": "12345648474",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userFirstName\":\"Rahul\",\n\t\"userLastName\":\"Sina's\",\n\t\"userEmail\":\"rahul@gmail.com\",\n\t\"userPassword\":\"Sorav@123\",\n\t\"userGender\":\"MALE\",\n\t\"userDOB\":\"1991-06-04\",\n\t\"userDeviceToken\":\"123-456-789\",\n\t\"userDeviceType\":\"IOS\",\n\t\"userDeviceId\":\"12346789\"\n}"
+						},
+						"description": "For User Registration"
+					},
+					"response": []
+				},
+				{
+					"name": "For User Login",
+					"request": {
+						"url": "{{base_url}}user/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "timezone",
+								"value": "Asia/Kolkata",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userEmail\":\"sorav.mobiwebtech123@gmail.com\",\n\t\"userPassword\":\"Sorav@123\",\n\t\"userDeviceToken\":\"123-456-789\",\n\t\"userDeviceType\":\"IOS\",\n\t\"userDeviceId\":\"12346789\"\n}"
+						},
+						"description": "For User Login"
+					},
+					"response": []
+				},
+				{
+					"name": "To verify user account",
+					"request": {
+						"url": "{{base_url}}user/verify-account",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userTempCode\":\"660430\",\n\t\"userLoginSessionKey\":\"42f537e22d-3e96-9d3e-a246-71590dc13d8b\"\n}"
+						},
+						"description": "To verify user account"
+					},
+					"response": []
+				},
+				{
+					"name": "To re-send accout verification code",
+					"request": {
+						"url": "{{base_url}}user/resend-account-verification-code",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"4cb1c6ab-d5c9-e484-d54a-c7fa20db9dbf\"\n}"
+						},
+						"description": "To re-send accout verification code"
+					},
+					"response": []
+				},
+				{
+					"name": "To forgot password",
+					"request": {
+						"url": "{{base_url}}user/forgot-password",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userEmail\":\"sorav.mobiwebtech123@gmail.com\"\n}"
+						},
+						"description": "To forgot password"
+					},
+					"response": []
+				},
+				{
+					"name": "To verify forgot password code",
+					"request": {
+						"url": "{{base_url}}user/verify-forgot-password-code",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userTempCode\":\"208947\",\n\t\"userLoginSessionKey\":\"4cb1c6ab-d5c9-e484-d54a-c7fa20db9dbf\"\n}"
+						},
+						"description": "To verify forgot password code"
+					},
+					"response": []
+				},
+				{
+					"name": "To reset user password",
+					"request": {
+						"url": "{{base_url}}user/reset-password",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"4cb1c6ab-d5c9-e484-d54a-c7fa20db9dbf\",\n\t\"newPassword\":\"Sorav@123\",\n\t\"confirmPassword\":\"Sorav@123\"\n}"
+						},
+						"description": "To reset password of user"
+					},
+					"response": []
+				},
+				{
+					"name": "To re-send forgot password code",
+					"request": {
+						"url": "{{base_url}}user/resend-forgot-password-code",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"4cb1c6ab-d5c9-e484-d54a-c7fa20db9dbf\"\n}"
+						},
+						"description": "To re-send forgot password code"
+					},
+					"response": []
+				},
+				{
+					"name": "To get pages content",
+					"request": {
+						"url": "{{base_url}}get-content",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"contentType\":\"BECOME_PROVIDER\"\n}"
+						},
+						"description": "To get pages content"
+					},
+					"response": []
+				},
+				{
+					"name": "To check social login for new & old users",
+					"request": {
+						"url": "{{base_url}}user/check-social-login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userSocialId\":\"123-456-789-abjsnk-32-2323\",\n\t\"userSocialType\":\"FACEBOOK\",\n\t\"userEmail\":\"sorav.mobiwebtech123@gmail.com\",\n\t\"userDeviceToken\":\"123-456-789\",\n\t\"userDeviceType\":\"IOS\",\n\t\"userDeviceId\":\"12346789\",\n\t\"isSocialEmail\":0\n}"
+						},
+						"description": "To check social login for new & old users"
+					},
+					"response": []
+				},
+				{
+					"name": "To user social login",
+					"request": {
+						"url": "{{base_url}}user/social-login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userSocialId\":\"14592ffdd23074143703\",\n\t\"userSocialType\":\"FACEBOOK\",\n\t\"userFirstName\":\"Pintu\",\n\t\"userLastName\":\"Patil\",\n\t\"userEmail\":\"pintu.kumar.parertil@gmail.com\",\n\t\"userGender\":\"MALE\",\n\t\"userDOB\":\"2001-09-20\",\n\t\"userDeviceToken\":\"123-456-789\",\n\t\"userDeviceType\":\"IOS\",\n\t\"userDeviceId\":\"12346789\",\n\t\"isSocialEmail\":\"0\"\n}"
+						},
+						"description": "To user social login"
+					},
+					"response": []
+				},
+				{
+					"name": "To verify user social account",
+					"request": {
+						"url": "{{base_url}}user/verify-social-account",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userTempCode\":\"123789\",\n\t\"userLoginSessionKey\":\"58ba48dcc2-af9d-6619-bea6-f7daf882954c\",\n\t\"userSocialVerificationID\":7\n}"
+						},
+						"description": "To verify user social account"
+					},
+					"response": []
+				},
+				{
+					"name": "To re-send social accout verification code",
+					"request": {
+						"url": "{{base_url}}user/resend-social-account-verification-code",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"58ba48dcc2-af9d-6619-bea6-f7daf882954c\"\n}"
+						},
+						"description": "To re-send social accout verification code"
+					},
+					"response": []
+				},
+				{
+					"name": "To update device info",
+					"request": {
+						"url": "{{base_url}}user/update-device-info",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"67b9d4f458-605d-600d-46cb-e1f562e4970e\",\n\t\"userDeviceToken\":\"ffioguihg-74834-fdfhdfg\",\n\t\"userDeviceType\":\"ANDROID\",\n\t\"userDeviceId\":\"5232ad9b5f593252\"\n}"
+						},
+						"description": "To update device info"
+					},
+					"response": []
+				},
+				{
+					"name": "to delete user",
+					"request": {
+						"url": "{{base_url}}user/delete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":71\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Profile",
+			"description": "User Profile",
+			"item": [
+				{
+					"name": "To view user profile",
+					"request": {
+						"url": "{{base_url}}user/view-profile",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\"\n}"
+						},
+						"description": "To view loggedin user profile"
+					},
+					"response": []
+				},
+				{
+					"name": "To enable & disable group chat",
+					"request": {
+						"url": "{{base_url}}user/enable-disable-group-chat",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"4cb1c6ab-d5c9-e484-d54a-c7fa20db9dbf\",\n\t\"isGroupChatEnable\":1\n}"
+						},
+						"description": "To enable & disable group chat"
+					},
+					"response": []
+				},
+				{
+					"name": "To set user moods",
+					"request": {
+						"url": "{{base_url}}user/set-moods",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"userMood\":\"Super excited🤗\"\n}"
+						},
+						"description": "To set user moods"
+					},
+					"response": []
+				},
+				{
+					"name": "To update user profile",
+					"request": {
+						"url": "{{base_url}}user/update-profile",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"userFirstName\":\"Sorav1\",\n\t\"userLastName\":\"Garg\",\n\t\"userGender\":\"MALE\",\n\t\"userDOB\":\"2001-06-23\",\n\t\"userSexualOrientation\":\"test\",\n\t\"userCountry\":\"India\",\n\t\"userCity\":\"Indore\",\n\t\"userAddress\":\"Tilak Nagar\",\n\t\"userLatitude\":\"22.36\",\n\t\"userLongitude\":\"75.36\"\n}"
+						},
+						"description": "To update user profile"
+					},
+					"response": []
+				},
+				{
+					"name": "To upload user profile & cover images",
+					"request": {
+						"url": "{{base_url}}user/upload-user-image",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userFile",
+									"description": "",
+									"type": "file",
+									"src": "3m6a0490_2.jpg"
+								},
+								{
+									"key": "userLoginSessionKey",
+									"value": "ac489d43-572f-f45f-b6bb-b9548fc78b2f67",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "fileUploadType",
+									"value": "PROFILE_IMG",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "To upload user profile & cover images"
+					},
+					"response": []
+				},
+				{
+					"name": "To upload user gallery images",
+					"request": {
+						"url": "{{base_url}}user/upload-gallery-images",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userFile",
+									"value": "",
+									"description": "",
+									"type": "file"
+								},
+								{
+									"key": "userLoginSessionKey",
+									"value": "67b9d4f458-605d-600d-46cb-e1f562e4970e",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "To upload user gallery images"
+					},
+					"response": []
+				},
+				{
+					"name": "To get user gallery images",
+					"request": {
+						"url": "{{base_url}}user/gallery-images-listing",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"pageNo\":5\n}"
+						},
+						"description": "To get user gallery images"
+					},
+					"response": []
+				},
+				{
+					"name": "To delete user gallery image",
+					"request": {
+						"url": "{{base_url}}user/delete-gallery-image",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"userGalleryImageId\":[1,2,3]\n}"
+						},
+						"description": "To delete user gallery image"
+					},
+					"response": []
+				},
+				{
+					"name": "To get user notifications",
+					"request": {
+						"url": "{{base_url}}user/notifications",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"pageNo\":1,\n\t\"moduleName\":\"GLOBAL\"\n}"
+						},
+						"description": "To get user notifications"
+					},
+					"response": []
+				},
+				{
+					"name": "To become a provider",
+					"request": {
+						"url": "{{base_url}}become-a-provider",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\"\n}"
+						},
+						"description": "To become a provider"
+					},
+					"response": []
+				},
+				{
+					"name": "To purchase membership",
+					"request": {
+						"url": "{{base_url}}user/purchase-membership",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n  \"paymentType\":\"CARD\",\n  \"walletAmount\":\"0\",\n  \"isPayByCard\":0,\n  \"cardNo\":\"4000000000000077\",\n  \"expiryMonth\":\"08\",\n  \"expiryYear\":\"2018\",\n  \"CVV\":\"123\",\n  \"cardHolderName\":\"SG\",\n  \"wantToSaveCard\":1\n}"
+						},
+						"description": "To purchase membership"
+					},
+					"response": []
+				},
+				{
+					"name": "To get inbox messages history",
+					"request": {
+						"url": "{{base_url}}user/inbox-msgs",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get inbox messages history"
+					},
+					"response": []
+				},
+				{
+					"name": "To expire user membership",
+					"request": {
+						"url": "{{base_url}}user/update-membership",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":\"68\"\n}"
+						},
+						"description": "To expire user membership"
+					},
+					"response": []
+				},
+				{
+					"name": "To manage user online status ",
+					"request": {
+						"url": "{{base_url}}user/update-online-status",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"onlineStatus\":\"OFFLINE\"\n}"
+						},
+						"description": "To manage user online status "
+					},
+					"response": []
+				},
+				{
+					"name": "To clear user badges",
+					"request": {
+						"url": "{{base_url}}user/clear-badges",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\"\n}"
+						},
+						"description": "To clear user badges"
+					},
+					"response": []
+				},
+				{
+					"name": "To get ICE server details",
+					"request": {
+						"url": "{{base_url}}ice-servers/list",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\"\n}"
+						},
+						"description": "To get ICE server details"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Settings",
+			"description": "User Settings",
+			"item": [
+				{
+					"name": "To manage user settings",
+					"request": {
+						"url": "{{base_url}}user/manage-settings",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"67b9d4f458-605d-600d-46cb-e1f562e4970e\",\n\t\"settingType\":\"OPEN_FOR_SCHEDULED_CALLS\",\n\t\"settingValue\":\"0\"\n}"
+						},
+						"description": "To manage user settings"
+					},
+					"response": []
+				},
+				{
+					"name": "To contact us",
+					"request": {
+						"url": "{{base_url}}user/contact-us",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"a0c26bf4-d649-f5c1-ab26-0e44694f911b\",\n\t\"contactPhone\":\"9074939905\",\n\t\"contactSubject\":\"hi\",\n\t\"contactMessage\":\"ih dhuis dhshdihs\"\n}"
+						},
+						"description": "To contact us"
+					},
+					"response": []
+				},
+				{
+					"name": "To change user password",
+					"request": {
+						"url": "{{base_url}}user/change-password",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"69dade9f78-dd28-6433-0a77-1fa77d7be916\",\n\t\"oldPassword\":\"Sorav@123\",\n\t\"newPassword\":\"Sorav@12345\",\n\t\"confirmPassword\":\"Sorav@12345\"\n}"
+						},
+						"description": "To change user password"
+					},
+					"response": []
+				},
+				{
+					"name": "To user logout",
+					"request": {
+						"url": "{{base_url}}user/logout",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"a0c26bf4-d649-f5c1-ab26-0e44694f911b\",\n\t\"userDeviceId\":\"12346789\",\n\t\"userID\":67\n}"
+						},
+						"description": "To user logout"
+					},
+					"response": []
+				},
+				{
+					"name": "To verify user social accounts",
+					"request": {
+						"url": "{{base_url}}user/verify-my-social-accounts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"a0c26bf4-d649-f5c1-ab26-0e44694f911b\",\n\t\"userSocialID\":\"123-456-78dsddsdsdsds3232dsds9\",\n\t\"userSocialType\":\"TWITTER\",\n\t\"userSocialEmailId\":\"sorav.mobiwebtech123@gmail.com\",\n\t\"isSocialEmail\":0\n}"
+						},
+						"description": "To verify user social accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "To get preferences keywords",
+					"request": {
+						"url": "{{base_url}}user/get-preferences-keywords",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"a0c26bf4-d649-f5c1-ab26-0e44694f911b\",\n\t\"preferenceType\":\"1\",\n\t\"preferenceModuleType\":\"FRIENDLY\"\n}"
+						},
+						"description": "To get preferences keywords"
+					},
+					"response": []
+				},
+				{
+					"name": "To set user preferences",
+					"request": {
+						"url": "{{base_url}}user/set-preferences",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"preferenceType\":\"PROVIDER\",\n\t\"dealBreakerPreferenceObj\":[\"h1\",\"h2\",\"h3\"],\n\t\"describePreferenceObj\":[1,2,3],\n\t\"lookingPreferenceObj\":[4,5],\n\t\"skillPreferenceObj\":[\"h1\",\"h2\",\"h3\"]\n}"
+						},
+						"description": "To set user preferences"
+					},
+					"response": []
+				},
+				{
+					"name": "To get user preferences",
+					"request": {
+						"url": "{{base_url}}user/get-preferences",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"preferenceType\":\"PROVIDER\"\n}"
+						},
+						"description": "To get user preferences"
+					},
+					"response": []
+				},
+				{
+					"name": "To check social id to verify social accounts",
+					"request": {
+						"url": "{{base_url}}user/check-social-id-to-verify-social-account",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"a0c26bf4-d649-f5c1-ab26-0e44694f911b\",\n\t\"userSocialID\":\"123-456-78dsds3232dsds9\",\n\t\"userSocialType\":\"FACEBOOK\"\n}"
+						},
+						"description": "To check social id to verify social accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "To verify email id for user social accounts verification",
+					"request": {
+						"url": "{{base_url}}user/verify-email-for-social-verification",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"a0c26bf4-d649-f5c1-ab26-0e44694f911b\",\n\t\"userTempCode\":\"467003\",\n\t\"userSocialVerificationID\":13\n}"
+						},
+						"description": "To verify email id for user social accounts verification"
+					},
+					"response": []
+				},
+				{
+					"name": "To re-send code for email id social verification",
+					"request": {
+						"url": "{{base_url}}user/resend-code-for-emailid-social-verification",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"a0c26bf4-d649-f5c1-ab26-0e44694f911b\",\n\t\"userSocialVerificationID\":14\n}"
+						},
+						"description": "To re-send code for email id social verification"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Friends",
+			"description": "",
+			"item": [
+				{
+					"name": "To get users listing ",
+					"request": {
+						"url": "{{base_url}}users/listing",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get users listing "
+					},
+					"response": [
+						{
+							"id": "6ccd9fe6-b23e-47ab-9717-e85ed65eb464",
+							"name": "To get users listing ",
+							"originalRequest": {
+								"url": "{{base_url}}users/listing",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"pageNo\":1\n}"
+								},
+								"description": "To get users listing "
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"name": "Access-Control-Allow-Headers",
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept",
+									"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+								},
+								{
+									"name": "Access-Control-Allow-Origin",
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"name": "Connection",
+									"key": "Connection",
+									"value": "keep-alive",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"name": "Content-Length",
+									"key": "Content-Length",
+									"value": "811",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"name": "Content-Type",
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"description": "The mime type of this content"
+								},
+								{
+									"name": "Date",
+									"key": "Date",
+									"value": "Mon, 09 Oct 2017 09:26:46 GMT",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"name": "ETag",
+									"key": "ETag",
+									"value": "W/\"32b-xO953HFrYie+ac9OG3MCTeuF7A8\"",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"name": "X-Powered-By",
+									"key": "X-Powered-By",
+									"value": "Express",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"responseTime": 42,
+							"body": "{\"code\":200,\"response\":[{\"masterUserId\":69,\"userEmail\":\"sorav.mobiwebtech123@gmail.com\",\"userFirstName\":\"ddsdsds\",\"userLastName\":\"Garg\",\"userMood\":\"\",\"userOriginalImage\":\"\",\"userImageThumbnail\":\"\",\"friendModuleId\":24,\"senderId\":67,\"recieverId\":69,\"friendStatus\":\"PENDING\"},{\"masterUserId\":70,\"userEmail\":\"sorav@mobiwebtech.com\",\"userFirstName\":\"ddsdsds\",\"userLastName\":\"Garg\",\"userMood\":\"\",\"userOriginalImage\":\"\",\"userImageThumbnail\":\"\",\"friendModuleId\":27,\"senderId\":67,\"recieverId\":70,\"friendStatus\":\"PENDING\"},{\"masterUserId\":68,\"userEmail\":\"pintu.kumar.parertil@gmail.com\",\"userFirstName\":\"Pintu\",\"userLastName\":\"Patil 68\",\"userMood\":\"\",\"userOriginalImage\":\"\",\"userImageThumbnail\":\"\",\"friendModuleId\":26,\"senderId\":67,\"recieverId\":68,\"friendStatus\":\"PENDING\"}],\"status\":1,\"totalCount\":3,\"message\":\"success\"}"
+						}
+					]
+				},
+				{
+					"name": "To get friend profile details",
+					"request": {
+						"url": "{{base_url}}friend/profile-details",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"userId\":68\n}"
+						},
+						"description": "To get friend profile details"
+					},
+					"response": []
+				},
+				{
+					"name": "To get friend gallery images",
+					"request": {
+						"url": "{{base_url}}friend/gallery-images",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":\"69\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get friend gallery images"
+					},
+					"response": []
+				},
+				{
+					"name": "To block & unblock user",
+					"request": {
+						"url": "{{base_url}}user/block-unblock",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"67b9d4f458-605d-600d-46cb-e1f562e4970e\",\n\t\"friendId\":68\n}"
+						},
+						"description": "To block & unblock user"
+					},
+					"response": []
+				},
+				{
+					"name": "To get blocked users listing",
+					"request": {
+						"url": "{{base_url}}user/blocked-users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get blocked users listing"
+					},
+					"response": []
+				},
+				{
+					"name": "To send friend request",
+					"request": {
+						"url": "{{base_url}}friend/send-request",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"67b9d4f458-605d-600d-46cb-e1f562e4970e\",\n\t\"friendId\":70\n}"
+						},
+						"description": "To send friend request"
+					},
+					"response": []
+				},
+				{
+					"name": "To accept friend request",
+					"request": {
+						"url": "{{base_url}}friend/accept-request",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"67b9d4f458-605d-600d-46cb-e1f562e4970e\",\n\t\"friendModuleId\":20\n}"
+						},
+						"description": "To accept friend request"
+					},
+					"response": []
+				},
+				{
+					"name": "To reject friend request",
+					"request": {
+						"url": "{{base_url}}friend/reject-request",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"67b9d4f458-605d-600d-46cb-e1f562e4970e\",\n\t\"friendModuleId\":17\n}"
+						},
+						"description": "To reject friend request"
+					},
+					"response": []
+				},
+				{
+					"name": "To get my friends list",
+					"request": {
+						"url": "{{base_url}}friend/my-friends-listing",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get my friends list"
+					},
+					"response": []
+				},
+				{
+					"name": "To get report flag categories",
+					"request": {
+						"url": "{{base_url}}report/categories",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\"\n}"
+						},
+						"description": "To get report flag categories"
+					},
+					"response": []
+				},
+				{
+					"name": "To unfriend user",
+					"request": {
+						"url": "{{base_url}}friend/unfriend",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"67b9d4f458-605d-600d-46cb-e1f562e4970e\",\n\t\"friendModuleId\":19\n}"
+						},
+						"description": "To unfriend user"
+					},
+					"response": []
+				},
+				{
+					"name": "To report a user",
+					"request": {
+						"url": "{{base_url}}user/report-flag",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userLoginSessionKey",
+									"value": "684a9ccad5-c318-c504-7470-9c42d69842f6",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "friendID",
+									"value": "70",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "userReportCategory",
+									"value": "Abusing",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "userReportDescprition",
+									"value": "Fake profile",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "userFiles",
+									"description": "",
+									"type": "file",
+									"src": "product-1513328232646-6c0f2521-57d1-3340-95ad-f4a1f186f1e9-thumb.jpg"
+								},
+								{
+									"key": "userFiles",
+									"description": "",
+									"type": "file",
+									"src": "product-1513328232665-89081fe7-db28-e6ed-8630-ae4cb9958d89.jpg"
+								},
+								{
+									"key": "userFiles",
+									"description": "",
+									"type": "file",
+									"src": "video-1519368214828-822832b6-f0ea-d977-3398-5e9967318ee0.mp4"
+								}
+							]
+						},
+						"description": "To report a user"
+					},
+					"response": []
+				},
+				{
+					"name": "To search users",
+					"request": {
+						"url": "{{base_url}}users/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n  \"pageNo\":1,\n  \"searchDistanceUnit\":\"KM\",\n  \"userLatitude\":\"22.36\",\n  \"userLongitude\":\"75.36\",\n  \"searchType\":\"LOCAL\",\n  \"globalSearchType\":\"COUNTRY_CITY\",\n  \"moduleName\":\"PROVIDER\",\n  \"countryName\":\"India\",\n  \"cityName\":\"Indore\",\n  \"searchDistance\":\"500\",\n  \"searchDistanceUnit\":\"KM\",\n  \"searchTerm\":\"GARG\"\n}"
+						},
+						"description": "To search users"
+					},
+					"response": []
+				},
+				{
+					"name": "To add people into group call search users ",
+					"request": {
+						"url": "{{base_url}}users/add-people-search-users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"userLatitude\":22,\n\t\"userLongitude\":\"75\",\n\t\"userAddress\":\"A\",\n\t\"searchTerm\":\"sorav\",\n\t\"moduleName\":\"DATING\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To add people into group call search users "
+					},
+					"response": []
+				},
+				{
+					"name": "To cancel friend request",
+					"request": {
+						"url": "{{base_url}}friend/cancel-request",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"67b9d4f458-605d-600d-46cb-e1f562e4970e\",\n\t\"friendModuleId\":19\n}"
+						},
+						"description": "To cancel friend request"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Calls",
+			"description": "Calls",
+			"item": [
+				{
+					"name": "To get users call history",
+					"request": {
+						"url": "{{base_url}}calls/history",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"pageNo\":1,\n\t\"moduleName\":\"FRIENDLY\"\n}"
+						},
+						"description": "To get users call history"
+					},
+					"response": []
+				},
+				{
+					"name": "To schedule user calls",
+					"request": {
+						"url": "{{base_url}}call/schedule",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "timezone",
+								"value": "Europe/Berlin",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"friendID\":70,\n\t\"moduleName\":\"DATING\",\n\t\"callScheduleDate\":\"2018-02-10\",\n\t\"callScheduleTime\":\"20:00\"\n}"
+						},
+						"description": "To schedule user calls"
+					},
+					"response": []
+				},
+				{
+					"name": "To re-schedule user calls",
+					"request": {
+						"url": "{{base_url}}call/re-schedule",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"callScheduleModuleID\":44,\n\t\"callReScheduleDate\":\"2018-02-10\",\n\t\"callReScheduleTime\":\"20:00\"\n}"
+						},
+						"description": "To re-schedule user calls"
+					},
+					"response": []
+				},
+				{
+					"name": "To accept scheduled call",
+					"request": {
+						"url": "{{base_url}}scheduled-call/accept",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n  \"callScheduleModuleID\":45\n}\n\n"
+						},
+						"description": "To accept scheduled call"
+					},
+					"response": []
+				},
+				{
+					"name": "To reject scheduled call",
+					"request": {
+						"url": "{{base_url}}scheduled-call/reject",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"callScheduleModuleID\":16\n}\n\n"
+						},
+						"description": "To reject scheduled call"
+					},
+					"response": []
+				},
+				{
+					"name": "To cancel scheduled call",
+					"request": {
+						"url": "{{base_url}}scheduled-call/cancel",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"callScheduleModuleID\":42\n}\n\n"
+						},
+						"description": "To cancel scheduled call"
+					},
+					"response": []
+				},
+				{
+					"name": "To get scheduled calls list",
+					"request": {
+						"url": "{{base_url}}scheduled-call/list",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"pageNo\":1,\n\t\"moduleName\":\"DATING\"\n}"
+						},
+						"description": "To get scheduled calls list"
+					},
+					"response": []
+				},
+				{
+					"name": "To give user call review",
+					"request": {
+						"url": "{{base_url}}call/review",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"callHistoryID\":10,\n\t\"callReviewRating\":\"2\",\n\t\"callReviewMessage\":\"Awesome\"\n}"
+						},
+						"description": "To give user call review"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dating",
+			"description": "Dating",
+			"item": [
+				{
+					"name": "To schedule user date",
+					"request": {
+						"url": "{{base_url}}date/schedule",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"friendID\":68,\n\t\"datingScheduleDate\":\"2017-12-20\",\n\t\"datingScheduleTime\":\"19:00\",\n\t\"datingLocation\":\"Indore\",\n\t\"datingLocationLatitude\":\"22.36\",\n\t\"datingLocationLongitude\":\"75.34\",\n\t\"datingAfterMath\":\"Hi\"\n}"
+						},
+						"description": "To schedule user date"
+					},
+					"response": []
+				},
+				{
+					"name": "To accept scheduled date",
+					"request": {
+						"url": "{{base_url}}scheduled-date/accept",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"dateScheduleModuleID\":1\n}\n\n"
+						},
+						"description": "To accept scheduled date"
+					},
+					"response": []
+				},
+				{
+					"name": "To reject scheduled date",
+					"request": {
+						"url": "{{base_url}}scheduled-date/reject",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"dateScheduleModuleID\":1\n}\n\n"
+						},
+						"description": "To reject scheduled date"
+					},
+					"response": []
+				},
+				{
+					"name": "To cancel scheduled date",
+					"request": {
+						"url": "{{base_url}}scheduled-date/cancel",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"dateScheduleModuleID\":1\n}\n\n"
+						},
+						"description": "To cancel scheduled date"
+					},
+					"response": []
+				},
+				{
+					"name": "To re-schedule user date",
+					"request": {
+						"url": "{{base_url}}date/re-schedule",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"dateScheduleModuleID\":1,\n\t\"datingScheduleDate\":\"2017-12-25\",\n\t\"datingScheduleTime\":\"19:00\",\n\t\"datingLocation\":\"Indore\",\n\t\"datingLocationLatitude\":\"22.36\",\n\t\"datingLocationLongitude\":\"75.34\",\n\t\"datingAfterMath\":\"Hi\"\n}"
+						},
+						"description": "To re-schedule user date"
+					},
+					"response": []
+				},
+				{
+					"name": "To get scheduled upcoming dates list",
+					"request": {
+						"url": "{{base_url}}upcoming-dates/list",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get scheduled upcoming dates list"
+					},
+					"response": []
+				},
+				{
+					"name": "To get scheduled past dates list",
+					"request": {
+						"url": "{{base_url}}past-dates/list",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"70307ff501-f081-33dd-8f0d-27b463404c36\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get scheduled past dates list"
+					},
+					"response": []
+				},
+				{
+					"name": "To give user dating review",
+					"request": {
+						"url": "{{base_url}}dating/review",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"datingScheduleID\":1,\n\t\"datingReviewRating\":\"2\",\n\t\"datingReviewMessage\":\"Awesome \"\n}"
+						},
+						"description": "To give user dating review"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"description": "Provider",
+			"item": [
+				{
+					"name": "To add provider service",
+					"request": {
+						"url": "{{base_url}}provider/add-service",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userLoginSessionKey",
+									"value": "684a9ccad5-c318-c504-7470-9c42d69842f6",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "userFile",
+									"value": "",
+									"description": "",
+									"type": "file"
+								},
+								{
+									"key": "serviceName",
+									"value": "Software Developer",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "serviceDescprition",
+									"value": "Hi",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "servicePrice",
+									"value": "15",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "serviceType",
+									"value": "FIXED",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "To add provider service"
+					},
+					"response": []
+				},
+				{
+					"name": "To edit provider service",
+					"request": {
+						"url": "{{base_url}}provider/edit-service",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userLoginSessionKey",
+									"value": "684a9ccad5-c318-c504-7470-9c42d69842f6",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "serviceName",
+									"value": "Software Developer",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "serviceDescprition",
+									"value": "Hi",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "servicePrice",
+									"value": "20",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "serviceType",
+									"value": "HOURLY",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "userFile",
+									"value": "",
+									"description": "",
+									"type": "file"
+								},
+								{
+									"key": "serviceID",
+									"value": "2",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "To edit provider service"
+					},
+					"response": []
+				},
+				{
+					"name": "To get service listing & details",
+					"request": {
+						"url": "{{base_url}}service/listing-details",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userID\":68,\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get service listing & details"
+					},
+					"response": []
+				},
+				{
+					"name": "To delete service",
+					"request": {
+						"url": "{{base_url}}service/delete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"serviceID\":1\n}"
+						},
+						"description": "To delete service"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Skills",
+			"description": "Skills",
+			"item": [
+				{
+					"name": "To add provider skills",
+					"request": {
+						"url": "{{base_url}}provider/add-skill",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"skillName\":\"Angular.JS\"\n}"
+						},
+						"description": "To add provider skills"
+					},
+					"response": []
+				},
+				{
+					"name": "To edit provider skill",
+					"request": {
+						"url": "{{base_url}}provider/edit-skill",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"skillName\":\"Angular.js\",\n\t\"skillID\":2\n}"
+						},
+						"description": "To edit provider skill"
+					},
+					"response": []
+				},
+				{
+					"name": "To delete skill",
+					"request": {
+						"url": "{{base_url}}skills/delete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"skillID\":3\n}"
+						},
+						"description": "To delete skill"
+					},
+					"response": []
+				},
+				{
+					"name": "To get skills listing & details",
+					"request": {
+						"url": "{{base_url}}skills/listing-details",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userID\":68,\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get skills listing & details"
+					},
+					"response": []
+				},
+				{
+					"name": "To select main skill",
+					"request": {
+						"url": "{{base_url}}provider/select-main-skill",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"skillID\":\"5\",\n\t\"isMainSkill\":\"1\"\n}"
+						},
+						"description": "To select main skills"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Videos",
+			"description": "Videos",
+			"item": [
+				{
+					"name": "To add provider videos",
+					"request": {
+						"url": "{{base_url}}provider/add-video",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userLoginSessionKey",
+									"value": "684a9ccad5-c318-c504-7470-9c42d69842f6",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "videoLength",
+									"value": "50",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "userVideo",
+									"description": "",
+									"type": "file",
+									"src": "video-1516199098208-485b39d6-f932-6643-6973-2fbfde7969e1.mp4"
+								}
+							]
+						},
+						"description": "To add provider videos"
+					},
+					"response": []
+				},
+				{
+					"name": "To get videos listing ",
+					"request": {
+						"url": "{{base_url}}videos/listing",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userID\":68,\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get videos listing "
+					},
+					"response": []
+				},
+				{
+					"name": "To delete videos ",
+					"request": {
+						"url": "{{base_url}}videos/delete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"videoIDs\":[1,2]\n}"
+						},
+						"description": "To delete videos "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"description": "Products",
+			"item": [
+				{
+					"name": "To add provider products",
+					"request": {
+						"url": "{{base_url}}provider/add-product",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userLoginSessionKey",
+									"value": "684a9ccad5-c318-c504-7470-9c42d69842f6",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "productName",
+									"value": "Online",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "productDescprition",
+									"value": "Hi",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "productPrice",
+									"value": "25",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "userFile",
+									"description": "",
+									"type": "file",
+									"src": "1__13_.jpg"
+								},
+								{
+									"key": "userFile",
+									"description": "",
+									"type": "file",
+									"src": "3m6a0074.jpg"
+								},
+								{
+									"key": "userFile",
+									"description": "",
+									"type": "file",
+									"src": "3m6a8332.jpg"
+								}
+							]
+						},
+						"description": "To add provider products"
+					},
+					"response": []
+				},
+				{
+					"name": "To delete product",
+					"request": {
+						"url": "{{base_url}}product/delete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"productID\":10\n}"
+						},
+						"description": "To delete product"
+					},
+					"response": []
+				},
+				{
+					"name": "To get product details",
+					"request": {
+						"url": "{{base_url}}product/details",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"productID\":23\n}"
+						},
+						"description": "To get product details"
+					},
+					"response": []
+				},
+				{
+					"name": "To get product listing ",
+					"request": {
+						"url": "{{base_url}}product/listing",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userID\":68,\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get product listing "
+					},
+					"response": []
+				},
+				{
+					"name": "To edit provider products",
+					"request": {
+						"url": "{{base_url}}provider/edit-product",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userLoginSessionKey",
+									"value": "684a9ccad5-c318-c504-7470-9c42d69842f6",
+									"type": "text"
+								},
+								{
+									"key": "productName",
+									"value": "Online 11",
+									"type": "text"
+								},
+								{
+									"key": "productDescprition",
+									"value": "Hi 22",
+									"type": "text"
+								},
+								{
+									"key": "productPrice",
+									"value": "251",
+									"type": "text"
+								},
+								{
+									"key": "userFile",
+									"type": "file",
+									"src": "university-default-logo.png"
+								},
+								{
+									"key": "productID",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "productImageIDS",
+									"value": "7,9",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userFile",
+									"description": "",
+									"type": "file",
+									"src": "appstore_btn.png",
+									"disabled": true
+								}
+							]
+						},
+						"description": "To edit provider products"
+					},
+					"response": []
+				},
+				{
+					"name": "To buy a product",
+					"request": {
+						"url": "{{base_url}}product/buy-now",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"996a9010-6ca7-8915-a8ea-12ed00f523f8\",\n\t\"productID\":98,\n\t\"orderFullName\":\"Sorav Garg's\",\n\t\"orderContactNo\":\"9074939905\",\n\t\"orderShippingAddress\":\"<script> 19/7, Tilak Nagar, Near Jain Mandir </script>\",\n\t\"orderLandmark\":\"Main road\",\n\t\"orderCity\":\"Indore\",\n\t\"orderState\":\"MP\",\n\t\"orderCountry\":\"India\",\n\t\"orderZipCode\":\"452018\",\n\t\"orderLatitude\":\"22.35\",\n\t\"orderLongitude\":\"75.36\"\n}"
+						},
+						"description": "To buy a product"
+					},
+					"response": []
+				},
+				{
+					"name": "To complete a order payment",
+					"request": {
+						"url": "{{base_url}}order/payment",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userLoginSessionKey\":\"996a9010-6ca7-8915-a8ea-12ed00f523f8\",\n  \"orderID\":15,\n  \"paymentType\":\"WALLET_AND_CARD\",\n  \"walletAmount\":\"1\",\n  \"isPayByCard\":0,\n  \"cardNo\":\"4111111111111111\",\n  \"expiryMonth\":\"08\",\n  \"expiryYear\":\"2018\",\n  \"CVV\":\"123\",\n  \"cardHolderName\":\"SG\",\n  \"wantToSaveCard\":1\n}"
+						},
+						"description": "To complete a order payment"
+					},
+					"response": []
+				},
+				{
+					"name": "To get order details",
+					"request": {
+						"url": "{{base_url}}order/details",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"orderID\":1\n}"
+						},
+						"description": "To get order details"
+					},
+					"response": []
+				},
+				{
+					"name": "To get orders listing  (My Orders & Received Orders)",
+					"request": {
+						"url": "{{base_url}}orders/listing",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"pageNo\":1,\n\t\"orderType\":\"MY_ORDERS\"\n}"
+						},
+						"description": "To get orders listing  (My Orders & Received Orders)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jobs",
+			"description": "Jobs",
+			"item": [
+				{
+					"name": "To post a job  (Hire a provider)",
+					"request": {
+						"url": "{{base_url}}job/post",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"jobProviderUserID\": 68,\n\t\"jobTitle\":\"Need Backend Developer New\",\n\t\"jobDescprition\":\"Hi\",\n\t\"jobMode\":\"LOCAL\",\n\t\"jobAddress\":\"Tilak Nagar, Indore\",\n\t\"jobLatitude\":\"22.35\",\n\t\"jobLongitude\":\"75.36\",\n\t\"jobStartDate\":\"2018-02-27\",\n\t\"jobEndDate\":\"2018-03-30\",\n\t\"jobPaymentMethod\":\"ADVANCE_AND_FROZEN\",\n\t\"jobAgreedAmount\":15,\n\t\"jobAdvanceAmount\":5,\n\t\"jobMilestones\":[\n\t\t\t{\n\t\t\t\t\n\t\t\t\t\"milestoneTitle\":\"Ist milestone\",\n\t\t\t\t\"milestoneAmount\":5\n\t\t\t},\n\t\t\t{\n\t\t\t\t\n\t\t\t\t\"milestoneTitle\":\"2nd milestone\",\n\t\t\t\t\"milestoneAmount\":5\n\t\t\t}\n\t]\n}"
+						},
+						"description": "To post a job  (Hire a provider)"
+					},
+					"response": []
+				},
+				{
+					"name": "To get job details",
+					"request": {
+						"url": "{{base_url}}job/details",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"jobID\": 32\n}"
+						},
+						"description": "To get job details"
+					},
+					"response": []
+				},
+				{
+					"name": "To modify a job",
+					"request": {
+						"url": "{{base_url}}job/modify",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"jobTitle\":\"Need Backend Developer New 1\",\n\t\"jobDescprition\":\"Hi\",\n\t\"jobMode\":\"LOCAL\",\n\t\"jobAddress\":\"Tilak Nagar, Indore\",\n\t\"jobLatitude\":\"22.35\",\n\t\"jobLongitude\":\"75.36\",\n\t\"jobStartDate\":\"2017-12-22\",\n\t\"jobEndDate\":\"2017-12-26\",\n\t\"jobPaymentMethod\":\"FROZEN\",\n\t\"jobAgreedAmount\":10,\n\t\"jobAdvanceAmount\":0,\n\t\"jobID\":18,\n\t\"jobMilestones\":[\n\t\t\t{\n\t\t\t\t\n\t\t\t\t\"milestoneTitle\":\"Ist milestone\",\n\t\t\t\t\"milestoneAmount\":5\n\t\t\t},\n\t\t\t{\n\t\t\t\t\n\t\t\t\t\"milestoneTitle\":\"2nd milestone\",\n\t\t\t\t\"milestoneAmount\":5\n\t\t\t}\n\t]\n}"
+						},
+						"description": "To modify a job"
+					},
+					"response": []
+				},
+				{
+					"name": "To accept a job request",
+					"request": {
+						"url": "{{base_url}}job/accept",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"jobID\": 32\n}"
+						},
+						"description": "To accept a job request"
+					},
+					"response": []
+				},
+				{
+					"name": "To complete a job ",
+					"request": {
+						"url": "{{base_url}}job/complete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"jobID\": 4\n}"
+						},
+						"description": "To complete a job "
+					},
+					"response": []
+				},
+				{
+					"name": "To release a job milestone",
+					"request": {
+						"url": "{{base_url}}job/release-milestone",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"jobID\": 32,\n\t\"milestoneID\":75\n}"
+						},
+						"description": "To release a job milestone"
+					},
+					"response": []
+				},
+				{
+					"name": "To give user job review",
+					"request": {
+						"url": "{{base_url}}job/review",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"jobID\": 18,\n\t\"jobReviewRating\":3,\n\t\"jobReviewMessage\":\"Awesome\"\n}"
+						},
+						"description": "To give user job review"
+					},
+					"response": []
+				},
+				{
+					"name": "To get job review listing",
+					"request": {
+						"url": "{{base_url}}job-review/list",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userID\":\"68\",\n\t\"pageNo\": 1\n}"
+						},
+						"description": "To get job review listing"
+					},
+					"response": []
+				},
+				{
+					"name": "To get past jobs listing",
+					"request": {
+						"url": "{{base_url}}past-jobs/list",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"pageNo\": 1,\n\t\"jobType\":\"RECEIVED_JOBS\"\n}"
+						},
+						"description": "To get past jobs listing"
+					},
+					"response": []
+				},
+				{
+					"name": "To get current jobs listing",
+					"request": {
+						"url": "{{base_url}}current-jobs/list",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"pageNo\": 1,\n\t\"jobType\":\"MY_JOBS\"\n}"
+						},
+						"description": "To get current jobs listing"
+					},
+					"response": []
+				},
+				{
+					"name": "To cancel a job",
+					"request": {
+						"url": "{{base_url}}job/cancel",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"jobID\": 31,\n\t\"jobCancelReason\":\"Not working\"\n}"
+						},
+						"description": "To cancel a job"
+					},
+					"response": []
+				},
+				{
+					"name": "To dispute a job",
+					"request": {
+						"url": "{{base_url}}job/dispute",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"jobID\": 7,\n\t\"jobDisputeReason\":\"Not working\"\n}"
+						},
+						"description": "To dispute a job"
+					},
+					"response": []
+				},
+				{
+					"name": "To verify oauth code from payment gateway server",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}connect-return?code=123456&userId=10",
+							"host": [
+								"{{base_url}}connect-return"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "123456",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "userId",
+									"value": "10",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "To verify oauth code from payment gateway server"
+					},
+					"response": []
+				},
+				{
+					"name": "To get payment connect url",
+					"request": {
+						"url": "{{base_url}}paymet/connect-url",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "To get payment connect url"
+					},
+					"response": []
+				},
+				{
+					"name": "To respond on a cancel job",
+					"request": {
+						"url": "{{base_url}}job/respond-on-cancel",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"jobID\": 31,\n\t\"responseType\":\"YES\"\n}"
+						},
+						"description": "To respond on a cancel job"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"description": "Wallet",
+			"item": [
+				{
+					"name": "To add money into wallet  (Using Card Details)",
+					"request": {
+						"url": "{{base_url}}wallet/add-money",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"ac489d43-572f-f45f-b6bb-b9548fc78b2f67\",\n\t\"cardNo\":\"4000000000000077\",\n\t\"expiryMonth\":\"08\",\n\t\"expiryYear\":\"2018\",\n\t\"CVV\":\"123\",\n\t\"walletAmount\":\"1500\",\n\t\"cardHolderName\":\"PKP`s\",\n\t\"wantToSaveCard\":1\n}"
+						},
+						"description": "To add money into wallet  (Using Card Details)"
+					},
+					"response": []
+				},
+				{
+					"name": "To add money into wallet (Using Saved Card)",
+					"request": {
+						"url": "{{base_url}}wallet/add-money-by-card",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"walletAmount\":\"10\",\n\t\"cardID\":\"card_1BVEBRA6D6xB5c5vyBpH3mqp\"\n}"
+						},
+						"description": "To add money into wallet (Using Saved Card)"
+					},
+					"response": []
+				},
+				{
+					"name": "To get wallet history",
+					"request": {
+						"url": "{{base_url}}wallet/history",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get wallet history"
+					},
+					"response": []
+				},
+				{
+					"name": "To get saved cards list",
+					"request": {
+						"url": "{{base_url}}saved-cards/list",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\"\n}"
+						},
+						"description": "To get saved cards list"
+					},
+					"response": []
+				},
+				{
+					"name": "To delete saved card",
+					"request": {
+						"url": "{{base_url}}saved-card/delete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"cardID\":\"card_1BVEBRA6D6xB5c5vyBpH3mqp\"\n}"
+						},
+						"description": "To delete saved card"
+					},
+					"response": []
+				},
+				{
+					"name": "To get transaction history",
+					"request": {
+						"url": "{{base_url}}transaction/history",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"pageNo\":1\n}"
+						},
+						"description": "To get transaction history"
+					},
+					"response": []
+				},
+				{
+					"name": "To withdraw money from wallet",
+					"request": {
+						"url": "{{base_url}}wallet/withdraw-money",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"withdrawAmouunt\":10\n}"
+						},
+						"description": "To withdraw money from wallet"
+					},
+					"response": []
+				},
+				{
+					"name": "To transaction dispute",
+					"request": {
+						"url": "{{base_url}}transaction/dispute",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userLoginSessionKey\":\"684a9ccad5-c318-c504-7470-9c42d69842f6\",\n\t\"transactionID\":16,\n\t\"disputeReason\":\"Failed\"\n}"
+						},
+						"description": "To transaction dispute"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stripe Cards",
+			"description": "Stripe Cards",
+			"item": []
+		}
+	]
+}
